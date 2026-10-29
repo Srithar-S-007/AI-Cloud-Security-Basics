@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Cloud Security Basics - Research and Checklist</title>
+  <style>
+    :root { --navy:#15304b; --blue:#2368a0; --pale:#eef5fb; --ink:#243447; --line:#d7e1eb; --green:#237a57; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Arial, Helvetica, sans-serif; color:var(--ink); background:#f2f5f9; line-height:1.6; }
+    header { background:linear-gradient(135deg,var(--navy),var(--blue)); color:white; padding:48px 20px; text-align:center; }
+    header .eyebrow { text-transform:uppercase; letter-spacing:2px; font-size:.85rem; opacity:.9; }
+    header h1 { margin:12px auto; max-width:850px; font-size:clamp(2rem,5vw,3.1rem); line-height:1.15; }
+    header p { max-width:720px; margin:14px auto 0; font-size:1.05rem; }
+    nav { background:#fff; border-bottom:1px solid var(--line); padding:12px 16px; text-align:center; position:sticky; top:0; z-index:10; }
+    nav a { display:inline-block; color:var(--navy); text-decoration:none; margin:5px 9px; font-weight:bold; font-size:.92rem; }
+    nav a:hover { color:var(--blue); text-decoration:underline; }
+    main { max-width:1000px; margin:28px auto; padding:0 16px 40px; }
+    section, .cover-details { background:white; padding:24px; border-radius:14px; margin:18px 0; box-shadow:0 3px 14px rgba(22,48,75,.06); }
+    h2 { color:var(--navy); border-bottom:2px solid var(--pale); padding-bottom:9px; margin-top:0; }
+    h3 { color:var(--blue); margin-bottom:6px; }
+    .cover-details { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; }
+    .field { border:1px solid var(--line); padding:12px; border-radius:8px; }
+    .field span { display:block; color:#5c6d7e; font-size:.85rem; margin-bottom:4px; }
+    .field strong { display:block; min-height:24px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+    .card { background:var(--pale); border-left:4px solid var(--blue); padding:15px; border-radius:8px; }
+    .card h3 { margin-top:0; }
+    table { border-collapse:collapse; width:100%; margin:12px 0; }
+    th,td { border:1px solid var(--line); padding:10px; text-align:left; vertical-align:top; }
+    th { background:var(--pale); color:var(--navy); }
+    .checklist label { display:flex; gap:10px; padding:10px 8px; border-bottom:1px solid #edf1f5; align-items:flex-start; }
+    .checklist input { margin-top:5px; transform:scale(1.15); }
+    .progress-wrap { background:#e8eef4; height:12px; border-radius:20px; overflow:hidden; margin:12px 0 6px; }
+    #progress { width:0%; height:100%; background:var(--green); transition:width .2s; }
+    .small { color:#5c6d7e; font-size:.92rem; }
+    .button-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    button { border:0; border-radius:8px; padding:11px 16px; background:var(--blue); color:white; font-weight:bold; cursor:pointer; }
+    button.secondary { background:#e8eef4; color:var(--navy); }
+    button:hover { filter:brightness(.95); }
+    footer { text-align:center; padding:24px 16px; background:var(--navy); color:#fff; }
+    a { overflow-wrap:anywhere; }
+    @media print {
+      body { background:white; font-size:10pt; }
+      nav, .button-row, .progress-wrap, #progressText { display:none !important; }
+      header { background:white; color:#15304b; padding:20px; border-bottom:2px solid #15304b; }
+      section, .cover-details { box-shadow:none; border:1px solid #ddd; break-inside:avoid; }
+      main { margin:0 auto; max-width:none; }
+      a { color:#15304b; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Student Project Report</div>
+  <h1>AI Cloud Security Basics</h1>
+  <p>Research and Checklist — understanding cloud security risks and how Artificial Intelligence can support safer cloud environments.</p>
+</header>
+
+<nav aria-label="Project navigation">
+  <a href="#introduction">Introduction</a>
+  <a href="#ai-role">Role of AI</a>
+  <a href="#threats">Threats</a>
+  <a href="#checklist">Checklist</a>
+  <a href="#example">Example</a>
+  <a href="#references">References</a>
+</nav>
+
+<main>
+  <div class="cover-details" aria-label="Student details">
+    <div class="field"><span>Submitted by</span><strong contenteditable="true">Enter your name</strong></div>
+    <div class="field"><span>Register number</span><strong contenteditable="true">Enter register number</strong></div>
+    <div class="field"><span>Department / Class</span><strong contenteditable="true">Enter department</strong></div>
+    <div class="field"><span>College</span><strong contenteditable="true">Enter college name</strong></div>
+    <div class="field"><span>Submitted to</span><strong contenteditable="true">Enter faculty name</strong></div>
+    <div class="field"><span>Academic year</span><strong>2026–2027</strong></div>
+  </div>
+
+  <section>
+    <h2>Acknowledgement</h2>
+    <p>I would like to express my sincere gratitude to my faculty and institution for giving me the opportunity to prepare this project on “AI Cloud Security Basics: Research and Checklist.” This project helped me understand cloud security, the role of artificial intelligence in identifying threats, and the importance of following basic security practices. I also acknowledge the official resources listed at the end of this report.</p>
+  </section>
+
+  <section>
+    <h2>Abstract</h2>
+    <p>Cloud computing lets people and organizations store data and use applications through the internet. Artificial Intelligence (AI) can help security teams identify unusual activity, analyze alerts, and prioritize potential threats. Cloud environments can face risks such as data breaches, weak passwords, misconfiguration, phishing, and unauthorized access. This project introduces AI cloud security, reviews common threats and protective measures, and provides a checklist for reviewing basic security controls. A college cloud-storage example shows how these controls can be applied.</p>
+  </section>
+
+  <section>
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#introduction">Introduction and Objectives</a></li>
+      <li><a href="#cloud-security">What Is Cloud Security?</a></li>
+      <li><a href="#ai-role">Role of AI in Cloud Security</a></li>
+      <li><a href="#threats">Common Cloud Security Threats</a></li>
+      <li><a href="#protection">Methods to Improve Security</a></li>
+      <li><a href="#checklist">AI Cloud Security Checklist</a></li>
+      <li><a href="#methodology">Research Methodology</a></li>
+      <li><a href="#example">Practical Example</a></li>
+      <li><a href="#advantages">Advantages and Limitations</a></li>
+      <li><a href="#future">Future Scope and Conclusion</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </section>
+
+  <section id="introduction">
+    <h2>1. Introduction</h2>
+    <p>Cloud computing is a technology that allows users to store data, run applications, and access services through the internet. Artificial Intelligence helps computers analyze data, identify patterns, and support decisions. These technologies are used in education, healthcare, banking, business, and many other fields.</p>
+    <p>However, cloud environments can face security challenges. Sensitive information may be exposed through weak access controls, incorrect settings, or cyberattacks. AI cloud security combines established security practices with AI-assisted analysis to help protect data, applications, and systems.</p>
+    <h3>Objectives of the Project</h3>
+    <ul>
+      <li>Understand the basics of cloud security.</li>
+      <li>Study the role of AI in cloud security.</li>
+      <li>Identify common cloud security threats.</li>
+      <li>Learn methods for protecting cloud data.</li>
+      <li>Prepare a checklist for reviewing cloud security.</li>
+      <li>Improve awareness of safe cloud-computing practices.</li>
+    </ul>
+  </section>
+
+  <section id="cloud-security">
+    <h2>2. What Is Cloud Security?</h2>
+    <p>Cloud security is a collection of technologies, policies, and practices used to protect cloud-based systems and information. It helps prevent unauthorized access, data loss, service disruption, and misuse.</p>
+    <p><strong>Examples of cloud platforms:</strong> Amazon Web Services (AWS), Microsoft Azure, and Google Cloud.</p>
+    <h3>Importance of Cloud Security</h3>
+    <div class="grid">
+      <div class="card"><h3>Data Protection</h3><p>Protects sensitive and confidential information.</p></div>
+      <div class="card"><h3>Access Control</h3><p>Reduces the risk of unauthorized access.</p></div>
+      <div class="card"><h3>Recovery</h3><p>Supports backup and recovery after accidental loss or incidents.</p></div>
+      <div class="card"><h3>Reliability</h3><p>Helps maintain privacy, availability, and business continuity.</p></div>
+    </div>
+  </section>
+
+  <section id="ai-role">
+    <h2>3. Role of AI in Cloud Security</h2>
+    <ol>
+      <li><strong>Threat detection:</strong> AI tools can analyze system and network activity to flag patterns associated with possible attacks.</li>
+      <li><strong>Anomaly detection:</strong> AI can identify activity that differs from normal patterns, such as unusual login times or data transfers.</li>
+      <li><strong>Security monitoring:</strong> AI can help sort and prioritize large numbers of security alerts.</li>
+      <li><strong>Fraud detection:</strong> AI can help identify suspicious account activity or transaction patterns.</li>
+      <li><strong>Predictive analysis:</strong> Historical patterns can help security teams identify areas of elevated risk.</li>
+      <li><strong>Incident response support:</strong> AI can summarize alerts and suggest next steps. Important actions should have appropriate human oversight.</li>
+    </ol>
+  </section>
+
+  <section id="threats">
+    <h2>4. Common Cloud Security Threats</h2>
+    <table>
+      <thead><tr><th>Threat</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Data breach</td><td>Confidential information is accessed or disclosed without authorization.</td></tr>
+        <tr><td>Weak passwords</td><td>Easy-to-guess or reused passwords can make accounts easier to compromise.</td></tr>
+        <tr><td>Phishing</td><td>Fraudulent messages or websites try to trick people into revealing information.</td></tr>
+        <tr><td>Malware</td><td>Malicious software may damage systems, disrupt services, or steal information.</td></tr>
+        <tr><td>Misconfiguration</td><td>Incorrect cloud settings may expose data or services unintentionally.</td></tr>
+        <tr><td>Insider threat</td><td>A person with legitimate access may misuse it intentionally or accidentally.</td></tr>
+        <tr><td>Denial-of-Service (DoS)</td><td>An attack attempts to make an application or service unavailable.</td></tr>
+        <tr><td>AI-related attacks</td><td>Attackers may use AI to scale scams or attempt to manipulate AI systems and their data.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="protection">
+    <h2>5. Basic Methods to Improve Cloud Security</h2>
+    <ol>
+      <li><strong>Strong passwords:</strong> Use long, unique passwords and store them safely.</li>
+      <li><strong>Multi-factor authentication (MFA):</strong> Require an additional verification step when signing in.</li>
+      <li><strong>Data encryption:</strong> Encrypt sensitive information while stored and while being transmitted.</li>
+      <li><strong>Access control:</strong> Give each user only the permissions needed for their role.</li>
+      <li><strong>Regular backups:</strong> Back up important data and test that it can be restored.</li>
+      <li><strong>Software updates:</strong> Apply security updates to operating systems, applications, and tools.</li>
+      <li><strong>Security monitoring:</strong> Review login events, configuration changes, and unusual activity.</li>
+      <li><strong>AI-assisted detection:</strong> Use reputable tools to help identify suspicious behavior and prioritize alerts.</li>
+      <li><strong>Security awareness:</strong> Teach users to recognize phishing, suspicious links, and social-engineering attempts.</li>
+      <li><strong>Incident response plan:</strong> Define how to report, investigate, contain, and recover from incidents.</li>
+    </ol>
+  </section>
+
+  <section id="checklist">
+    <h2>6. AI Cloud Security Checklist</h2>
+    <p>Tick each item after reviewing it. Your progress is shown below. This is an awareness tool and does not guarantee that a cloud environment is fully secure.</p>
+    <div class="checklist" id="checklistItems">
+      <label><input type="checkbox"> <span>Use strong and unique passwords.</span></label>
+      <label><input type="checkbox"> <span>Enable multi-factor authentication for important accounts.</span></label>
+      <label><input type="checkbox"> <span>Encrypt sensitive cloud data.</span></label>
+      <label><input type="checkbox"> <span>Review user access permissions regularly.</span></label>
+      <label><input type="checkbox"> <span>Keep software and applications updated.</span></label>
+      <label><input type="checkbox"> <span>Create regular backups of important data.</span></label>
+      <label><input type="checkbox"> <span>Monitor suspicious login activity.</span></label>
+      <label><input type="checkbox"> <span>Configure cloud storage permissions securely.</span></label>
+      <label><input type="checkbox"> <span>Use reputable threat-detection tools.</span></label>
+      <label><input type="checkbox"> <span>Review security alerts regularly.</span></label>
+      <label><input type="checkbox"> <span>Train users to recognize phishing messages.</span></label>
+      <label><input type="checkbox"> <span>Prepare and document an incident-response plan.</span></label>
+      <label><input type="checkbox"> <span>Protect AI systems, models, and the data they use.</span></label>
+      <label><input type="checkbox"> <span>Review cloud security settings periodically.</span></label>
+      <label><input type="checkbox"> <span>Test data-recovery procedures.</span></label>
+    </div>
+    <div class="progress-wrap" aria-label="Checklist completion"><div id="progress"></div></div>
+    <p id="progressText" class="small" aria-live="polite">0 of 15 completed.</p>
+    <p class="small"><strong>Evaluation:</strong> If items are incomplete, record the gaps and prioritize improvements according to risk. Review the checklist regularly.</p>
+    <div class="button-row">
+      <button type="button" onclick="window.print()">Print / Save as PDF</button>
+      <button type="button" class="secondary" onclick="resetChecklist()">Reset checklist</button>
+    </div>
+  </section>
+
+  <section id="methodology">
+    <h2>7. Research Methodology</h2>
+    <p>This project follows a descriptive research methodology. It reviews cloud-security concepts, AI applications, common threats, and recommended practices using educational material and official documentation.</p>
+    <ol>
+      <li>Collect information about cloud computing and security.</li>
+      <li>Study basic cloud-security principles.</li>
+      <li>Research how AI can support threat detection and analysis.</li>
+      <li>Identify common cloud-security risks.</li>
+      <li>Prepare a practical checklist of security controls.</li>
+      <li>Summarize the findings and recommendations.</li>
+    </ol>
+  </section>
+
+  <section id="example">
+    <h2>8. Practical Example: College Cloud Storage</h2>
+    <p><strong>Scenario:</strong> A college stores student records, examination results, and assignment files in a cloud-storage system. Possible risks include unauthorized access, accidental sharing, and account theft.</p>
+    <h3>Suggested Security Measures</h3>
+    <ul>
+      <li>Enable multi-factor authentication for staff accounts.</li>
+      <li>Limit access to student records to authorized staff.</li>
+      <li>Encrypt confidential information where appropriate.</li>
+      <li>Back up important records and test restoration.</li>
+      <li>Use AI-assisted monitoring to flag unusual access patterns.</li>
+      <li>Review permissions each semester or when roles change.</li>
+      <li>Train staff and students to identify phishing messages.</li>
+    </ul>
+    <p><strong>Expected result:</strong> These measures can reduce common security risks and improve the protection of college information. They should be combined with appropriate policies, monitoring, and regular reviews.</p>
+  </section>
+
+  <section id="advantages">
+    <h2>9. Advantages of AI Cloud Security</h2>
+    <ul>
+      <li>Can help identify suspicious activity quickly.</li>
+      <li>Supports continuous monitoring of cloud environments.</li>
+      <li>Helps analyze and prioritize security alerts.</li>
+      <li>Can assist with repetitive monitoring tasks.</li>
+      <li>May improve visibility into potential threats.</li>
+      <li>Can support faster investigation when used appropriately.</li>
+    </ul>
+    <h2>Limitations of AI Cloud Security</h2>
+    <ul>
+      <li>AI tools can generate false alarms or miss threats.</li>
+      <li>Implementation and maintenance may be expensive.</li>
+      <li>AI performance depends on data quality and system design.</li>
+      <li>Attackers may try to evade or manipulate AI-based detection.</li>
+      <li>AI-generated recommendations can be incorrect.</li>
+      <li>Human review and established security controls remain necessary.</li>
+    </ul>
+  </section>
+
+  <section id="future">
+    <h2>10. Future Scope</h2>
+    <p>AI cloud security may develop through improvements in machine learning, identity protection, automated threat detection, and security analytics. Future tools may help organizations recognize unfamiliar attack patterns and prioritize risks more effectively. Organizations will also need to protect AI models and their data, test AI systems carefully, and maintain human oversight of important security decisions.</p>
+    <h2>Conclusion</h2>
+    <p>AI cloud security is an important part of modern cybersecurity. Cloud computing provides convenient access to data and applications, while AI can help identify unusual activities and analyze security risks. Strong passwords, multi-factor authentication, encryption, access control, backups, updates, and monitoring are essential practices. This project’s checklist offers a simple way to review basic controls. Combining AI-assisted tools with sound security practices and human oversight can help organizations protect cloud data and reduce risk.</p>
+  </section>
+
+  <section id="references">
+    <h2>11. References</h2>
+    <ol>
+      <li><a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer">NIST Cybersecurity Framework</a></li>
+      <li><a href="https://cloudsecurityalliance.org/" target="_blank" rel="noopener noreferrer">Cloud Security Alliance</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/azure/security/" target="_blank" rel="noopener noreferrer">Microsoft Azure Security Documentation</a></li>
+      <li><a href="https://docs.aws.amazon.com/security/" target="_blank" rel="noopener noreferrer">AWS Security Documentation</a></li>
+      <li><a href="https://cloud.google.com/security" target="_blank" rel="noopener noreferrer">Google Cloud Security Documentation</a></li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <p><strong>AI Cloud Security Basics: Research and Checklist</strong></p>
+  <p>Educational project report · Academic Year 2026–2027</p>
+</footer>
+
+<script>
+  const boxes = Array.from(document.querySelectorAll('#checklistItems input[type="checkbox"]'));
+  function updateProgress() {
+    const done = boxes.filter(box => box.checked).length;
+    document.getElementById('progress').style.width = (done / boxes.length * 100) + '%';
+    document.getElementById('progressText').textContent = `${done} of ${boxes.length} completed (${Math.round(done / boxes.length * 100)}%).`;
+  }
+  function resetChecklist() {
+    boxes.forEach(box => box.checked = false);
+    updateProgress();
+  }
+  boxes.forEach(box => box.addEventListener('change', updateProgress));
+  updateProgress();
+</script>
+</body>
+</html>
